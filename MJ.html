@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Pierre's Profit Calculator</title>
+<style>
+
+  @font-face {
+
+    font-family: "Stardew";
+    src: url('Stardew.ttf');
+
+  }
+
+  body {
+    background-image: url(stardew.png);
+    color: #56160C;
+    font-family: "Stardew";
+    text-align: center;
+    font-size: 130%;
+  }
+
+  h1 {
+    color: #FFFFFF;
+    font-size: 40px;
+    margin-top: 50px;
+  }
+
+  p.Intro {
+  font-size: 130%;
+  color: #ADD8E6; 
+  } 
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 50px;
+  }
+
+  .item {
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-style: solid;
+    border-color: #A94A05;
+    background-image: linear-gradient(#ECA65F, #FBC571);
+    border-radius: 10px;
+    margin: 15px;
+    padding: 15px;
+    width: 140px;
+    height: 140px;
+    display: flex;
+    
+  }
+
+  .item p {
+    font-size: 30px;
+    margin: 20px;
+  }
+
+  #most_sold {
+    color: #CCCCCC;
+    font-size: 115%;
+  }
+
+  #time_taken {
+    color: #CCCCCC;
+    font-size: 115%;
+  }
+
+  #customer_name {
+    color: #CCCCCC;
+    font-size: 115%;
+  }
+
+  #bottom_text {
+    margin-top: 50px;
+  }
+</style>
+</head>
+
+<body>
+  <h1>The Farmer's Profit!</h1>
+  <div class="container">
+    <div class="item">
+      <img src="Parsnip.png" alt="parsnip">
+      <h2>Parsnip</h2>
+      <p id="parsnip"></p>
+    </div>
+    <div class="item">
+      <img src="Cauliflower.png" alt="cauliflower">
+      <h2>Cauliflower</h2>
+      <p id="cauliflower"></p>
+    </div>
+    <div class="item">
+      <img src="Potato.png" alt="potato">
+      <h2>Potato</h2>
+      <p id="potato"></p>
+    </div>
+  </div>
+
+  <p class="Intro">The farmer wants to know how much he made during the week selling to Pierre.</p>
+  <p class="Intro">He was able to sell:</p>
+
+  <div id="bottom_text">
+    <p id="most_sold"></p>
+    <p id="time_taken"></p>
+    <p id="customer_name"></p>
+  </div>
+
+<script>
+ 
+var num1 = Math.floor(Math.random() * 20 + 1);
+var num2 = Math.floor(Math.random() * 20 + 1);
+var num3 = Math.floor(Math.random() * 20 + 1);
+var mins = num2 * num3 + 15;
+var hours = Math.floor(mins / 60);
+var letter = String.fromCharCode(65 + parseInt(num1));
+var mostSold;
+
+if (num1 > num2 && num1 > num3) {
+
+  mostSold = "Parsnip";
+
+} else if (num2 > num1 && num2 > num3) {
+
+  mostSold = "Cauliflower";
+
+} else if (num3 > num1 && num3 > num2) {
+
+  mostSold = "Potato";
+
+} else {
+
+  mostSold = "nothing special";
+
+}
+
+
+document.getElementById("parsnip").innerHTML = num1;
+document.getElementById("cauliflower").innerHTML = num2;
+document.getElementById("potato").innerHTML = num3;
+document.getElementById("most_sold").innerHTML = "The farmer sold " + mostSold + " the most";
+document.getElementById("time_taken").innerHTML = "It took the farmer " + hours + " hours and " + (mins % 60) + " minutes to sell all the items!";
+document.getElementById("customer_name").innerHTML = "Pierre's last customer's first name was " + letter;
+
+
+  </script>
+
+  <footer style="margin-top: 125px;"></footer>
+
+</body>
+</html>
